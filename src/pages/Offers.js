@@ -129,7 +129,6 @@ const Offers = ({
               return (
                 <OfferInfo
                   search={search}
-                  // validate={validate}
                   display={true}
                   elem={element}
                   key={element._id}
