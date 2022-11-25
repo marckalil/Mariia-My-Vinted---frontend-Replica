@@ -28,7 +28,7 @@ const SignUp = ({ token, setToken, handleToken }) => {
         formData.append("newsletter", newsletter);
         formData.append("picture", picture);
 
-        const response = await axios.post(
+        await axios.post(
           "https://site--vinted-backend--b4q4rvkfdvcr.code.run/user/signup",
           formData
         );

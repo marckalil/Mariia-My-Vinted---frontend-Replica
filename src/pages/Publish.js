@@ -13,6 +13,8 @@ const Publish = ({ token }) => {
   const [color, setColor] = useState("");
   const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
+
+  // tu n'utilises pas data, tu peux donc supprimer ton state
   const [data, setData] = useState([]);
 
   const handleSubmit = async (event) => {
@@ -43,6 +45,7 @@ const Publish = ({ token }) => {
         }
       );
 
+      // Inutilie puisque tu n'utilise pas data
       setData(response.data);
       alert("L'offre vient d'être publiée");
     } catch (error) {
