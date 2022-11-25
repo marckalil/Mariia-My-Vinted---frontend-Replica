@@ -21,16 +21,6 @@ const SignUp = ({ token, setToken, handleToken }) => {
       setErrorMessage("Veuillez remplir touts les champs");
     } else {
       try {
-        // const response = await axios.post(
-        //   "http://localhost:3000/user/signup",
-        //   {
-        //     email: email,
-        //     username: name,
-        //     password: password,
-        //     newsletter: newsletter,
-        //   }
-        // );
-
         const formData = new FormData();
         formData.append("username", username);
         formData.append("email", email);

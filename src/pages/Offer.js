@@ -6,9 +6,7 @@ import Footer from "../components/Footer";
 const Offer = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +15,6 @@ const Offer = () => {
           `https://site--vinted-backend--b4q4rvkfdvcr.code.run/offer/${id}`
         );
         setData(response.data);
-        // console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.data.response);
@@ -47,19 +44,16 @@ const Offer = () => {
               <ul>
                 {data.product_details.map((detail, index) => {
                   const keys = Object.keys(detail)[0];
-                  // console.log(keys);
                   return (
                     <div className="details" key={index}>
                       <li>
                         <span className="keys">{keys} : </span>
-                        {/* <span className="detail-keys">{detail[keys]}</span> */}
                       </li>
                     </div>
                   );
                 })}
                 {data.product_details.map((detail, index) => {
                   const keys = Object.keys(detail)[0];
-                  // console.log(keys);
                   return (
                     <div className="details" key={index}>
                       <li>

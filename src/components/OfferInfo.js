@@ -1,18 +1,6 @@
 import { Link } from "react-router-dom";
 
 const OfferInfo = ({ elem, display }) => {
-  // if (validate === true) {
-  //   // console.log(data.offers[i].product_name);
-  //   const articlePresent = data.offers.find(
-  //     (elem) => elem.product_name === search
-  //   );
-  //   console.log(articlePresent);
-
-  //   //   console.log("ça marche");
-  //   // }
-  //   // }
-  // }
-
   return (
     elem.owner && (
       <div>

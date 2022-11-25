@@ -56,8 +56,6 @@ const Home = () => {
           </div>
           <div className="content populaire">
             {data.offers.map((elem, index) => {
-              // console.log(elem._id);
-              // console.log(elem._id.length);
               return index < 5 && <OfferInfo elem={elem} key={index} />;
             })}
             <Link to="/offers" className="seeMoreArticle">
@@ -94,8 +92,6 @@ const Home = () => {
           <h2 className="title">Fil d'actu</h2>
           <div className="content actu">
             {data.offers.map((element) => {
-              // console.log(element.length);
-              // console.log(elem._id.length);
               return (
                 <OfferInfo display={true} elem={element} key={element._id} />
               );

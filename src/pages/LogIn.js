@@ -26,13 +26,11 @@ const LogIn = ({ handleToken, setId, id }) => {
           }
         );
 
-        // console.log(response.data);
         handleToken(response.data.token);
         setId(response.data._id);
 
         navigate("/");
       } catch (error) {
-        // console.log(error.message);
         if (error.response?.status === 401) {
           setErrorMessage("Le mail ou le monts de passes n'est pas correct");
         }

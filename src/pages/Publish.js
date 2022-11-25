@@ -19,7 +19,6 @@ const Publish = ({ token }) => {
     event.preventDefault();
     const formData = new FormData();
     for (let i = 0; i < image.length; i++) {
-      // console.log(image[i]);
       formData.append("image", image[i]);
     }
 
@@ -44,7 +43,6 @@ const Publish = ({ token }) => {
         }
       );
 
-      console.log(response.data);
       setData(response.data);
       alert("L'offre vient d'être publiée");
     } catch (error) {
@@ -72,7 +70,6 @@ const Publish = ({ token }) => {
               name="+ Ajouter une photo"
               onChange={(event) => {
                 setImage(event.target.files);
-                console.log(event.target.files);
               }}
               multiple
             ></input>

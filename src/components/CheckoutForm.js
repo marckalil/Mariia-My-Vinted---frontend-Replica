@@ -12,15 +12,11 @@ const CheckoutForm = ({ id, title, price }) => {
     event.preventDefault();
     try {
       const cardElement = elements.getElement(CardElement);
-      // console.log(cardElement);
-      // console.log(id);
+
       const stripeResponse = await stripe.createToken(cardElement, {
         name: id,
       });
-      // console.log(stripeToken);
-
       const stripeToken = stripeResponse.token.id;
-      // console.log(stripeResponse);
       const response = await axios.post(
         "https://site--vinted-backend--b4q4rvkfdvcr.code.run/pay",
         {
@@ -30,7 +26,6 @@ const CheckoutForm = ({ id, title, price }) => {
         }
       );
 
-      // console.log(response.data);
       if (response.data.status === "succeeded") {
         setCompleted(true);
       }
@@ -40,9 +35,7 @@ const CheckoutForm = ({ id, title, price }) => {
   };
 
   const fraisAcheteur = price / 10;
-  // console.log(fraisAcheteur);
   const fraisPort = fraisAcheteur * 2;
-  // console.log(fraisPort);
 
   return (
     <>
