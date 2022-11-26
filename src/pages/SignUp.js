@@ -2,6 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import {
+  EmailInput,
+  Input,
+  PasswordInput
+} from "../components";
+
 
 const SignUp = ({ token, setToken, handleToken }) => {
   const [username, setUsername] = useState("");
@@ -47,41 +53,38 @@ const SignUp = ({ token, setToken, handleToken }) => {
     }
   };
 
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const onUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
   return (
     <>
       <form className="register-form" onSubmit={handleUserSubmit}>
         <h1>S'inscrire</h1>
-        <input
-          className="input-text"
+        <Input
           name="name"
-          type="text"
+          type="text"          
+          onChange={onUsernameChange}
           placeholder="Your name"
           value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        ></input>
-
+        />
         <p className="error">{errorMessage}</p>
-        <input
-          className="input-text"
-          name="email"
-          type="email"
-          placeholder="Adresse email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        ></input>
-        <input
-          className="input-text"
-          type="password"
-          placeholder="Mots de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        ></input>
+        <EmailInput
+          email={email}
+          onEmailChange={onEmailChange}
+        />
+        <PasswordInput
+          onPasswordChange={onPasswordChange}
+          password={password}
+        />
         <div className="button-avatar">
           <span>Selectionnez la photo de profile</span>
           <label className="photo-avatar" htmlFor="photo-register">
