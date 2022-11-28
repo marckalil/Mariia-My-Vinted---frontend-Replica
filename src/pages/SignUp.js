@@ -2,6 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import {
+  EmailInput,
+  Input,
+  PasswordInput
+} from "../components";
+
 
 const SignUp = ({ token, setToken, handleToken }) => {
   const [username, setUsername] = useState("");
@@ -21,16 +27,6 @@ const SignUp = ({ token, setToken, handleToken }) => {
       setErrorMessage("Veuillez remplir touts les champs");
     } else {
       try {
-        // const response = await axios.post(
-        //   "http://localhost:3000/user/signup",
-        //   {
-        //     email: email,
-        //     username: name,
-        //     password: password,
-        //     newsletter: newsletter,
-        //   }
-        // );
-
         const formData = new FormData();
         formData.append("username", username);
         formData.append("email", email);
@@ -38,7 +34,7 @@ const SignUp = ({ token, setToken, handleToken }) => {
         formData.append("newsletter", newsletter);
         formData.append("picture", picture);
 
-        const response = await axios.post(
+        await axios.post(
           "https://site--vinted-backend--b4q4rvkfdvcr.code.run/user/signup",
           formData
         );
@@ -57,41 +53,38 @@ const SignUp = ({ token, setToken, handleToken }) => {
     }
   };
 
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const onUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
   return (
     <>
       <form className="register-form" onSubmit={handleUserSubmit}>
         <h1>S'inscrire</h1>
-        <input
-          className="input-text"
+        <Input
           name="name"
-          type="text"
+          type="text"          
+          onChange={onUsernameChange}
           placeholder="Your name"
           value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        ></input>
-
+        />
         <p className="error">{errorMessage}</p>
-        <input
-          className="input-text"
-          name="email"
-          type="email"
-          placeholder="Adresse email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        ></input>
-        <input
-          className="input-text"
-          type="password"
-          placeholder="Mots de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        ></input>
+        <EmailInput
+          email={email}
+          onEmailChange={onEmailChange}
+        />
+        <PasswordInput
+          onPasswordChange={onPasswordChange}
+          password={password}
+        />
         <div className="button-avatar">
           <span>Selectionnez la photo de profile</span>
           <label className="photo-avatar" htmlFor="photo-register">

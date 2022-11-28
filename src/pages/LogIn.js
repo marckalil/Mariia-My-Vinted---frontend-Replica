@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { EmailInput, PasswordInput } from "../components";
 
 const LogIn = ({ handleToken, setId, id }) => {
   const [email, setEmail] = useState("");
@@ -26,13 +27,11 @@ const LogIn = ({ handleToken, setId, id }) => {
           }
         );
 
-        // console.log(response.data);
         handleToken(response.data.token);
         setId(response.data._id);
 
         navigate("/");
       } catch (error) {
-        // console.log(error.message);
         if (error.response?.status === 401) {
           setErrorMessage("Le mail ou le monts de passes n'est pas correct");
         }
@@ -42,29 +41,26 @@ const LogIn = ({ handleToken, setId, id }) => {
       }
     }
   };
+  const onEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
 
   return (
     <>
       <form className="connection-form" onSubmit={handleLogin}>
         <h1>Se connecter</h1>
-        <input
-          className="input-text"
-          type="email"
-          placeholder="Adresse email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        ></input>
-        <input
-          className="input-text"
-          type="password"
-          placeholder="Mots de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        ></input>
+        <EmailInput
+          email={email}
+          onEmailChange={onEmailChange}
+        />
+        <PasswordInput
+          onPasswordChange={onPasswordChange}
+          password={password}
+        />
 
         <p className="error">{errorMessage}</p>
         <button className="connection-button" type="submit">

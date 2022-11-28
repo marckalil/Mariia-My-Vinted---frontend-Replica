@@ -656,13 +656,11 @@ textarea {
 footer {
   position: absolute;
   margin-bottom: 0;
-  /* background-color: #ebe9e9; */
 }
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #ebe9e9; */
 }
 
 .footer-section {

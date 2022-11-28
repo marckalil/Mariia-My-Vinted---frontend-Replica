@@ -37,14 +37,6 @@ const App = () => {
     }
   };
 
-  // const handleSearchChange = (event) => {
-  //   setValidate(false);
-
-  //   if (event.key === "Enter") {
-  //     setValidate(true);
-  //   }
-  // };
-
   return (
     <Router>
       <Header
@@ -52,9 +44,6 @@ const App = () => {
         handleToken={handleToken}
         search={search}
         setSearch={setSearch}
-        // validate={validate}
-        // setValidate={setValidate}
-        // handleSearchChange={handleSearchChange}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -74,8 +63,6 @@ const App = () => {
           element={
             <Offers
               search={search}
-              // validate={validate}
-              // setValidate={setValidate}
               limit={limit}
               setLimit={setLimit}
               priceSort={priceSort}

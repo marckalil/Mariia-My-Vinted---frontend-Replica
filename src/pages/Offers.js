@@ -6,7 +6,6 @@ import OfferInfo from "../components/OfferInfo";
 
 const Offers = ({
   search,
-  // validate,
   limit,
   setLimit,
   priceSort,
@@ -45,16 +44,6 @@ const Offers = ({
     };
     fetchData();
   }, [priceMin, priceMax, limit, page, priceSort, search]);
-
-  // let articlePresent = null;
-
-  // if (validate === true) {
-  //   //  console.log(data.offers[i].product_name);
-  //   articlePresent = data.offers.filter((elem) =>
-  //     elem.product_name.includes(search)
-  //   );
-  //   //   console.log(articlePresent);
-  // }
 
   const handlePriceChangeMax = (event) => {
     setPriceMax(event.target.value);
@@ -136,25 +125,10 @@ const Offers = ({
             </div>
           </div>
           <div className="content actu">
-            {/* {validate
-            ? articlePresent.map((element) => {
-                return (
-                  <OfferInfo
-                    data={data}
-                    search={search}
-                    validate={validate}
-                    display={true}
-                    elem={element}
-                    key={element._id}
-                  />
-                );
-              })
-            : */}
             {data.offers.map((element) => {
               return (
                 <OfferInfo
                   search={search}
-                  // validate={validate}
                   display={true}
                   elem={element}
                   key={element._id}

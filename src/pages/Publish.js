@@ -13,13 +13,14 @@ const Publish = ({ token }) => {
   const [color, setColor] = useState("");
   const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
+
+  // tu n'utilises pas data, tu peux donc supprimer ton state
   const [data, setData] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     for (let i = 0; i < image.length; i++) {
-      // console.log(image[i]);
       formData.append("image", image[i]);
     }
 
@@ -44,7 +45,7 @@ const Publish = ({ token }) => {
         }
       );
 
-      console.log(response.data);
+      // Inutilie puisque tu n'utilise pas data
       setData(response.data);
       alert("L'offre vient d'être publiée");
     } catch (error) {
@@ -72,7 +73,6 @@ const Publish = ({ token }) => {
               name="+ Ajouter une photo"
               onChange={(event) => {
                 setImage(event.target.files);
-                console.log(event.target.files);
               }}
               multiple
             ></input>

@@ -10,8 +10,6 @@ const stripPromise = loadStripe(
   "pk_test_51M4Oa5LO2uKvmdcRPDIQ5SE5q7mHqe33Ybdj8e2URuY3rKgJIpYSWp448q88CmizVPBvB8YcvW50jHRyzVKnOMDB00EfapnyV9"
 );
 
-// console.log(stripPromise);
-
 const Paiement = ({ token, id }) => {
   const location = useLocation();
   const { price } = location.state;

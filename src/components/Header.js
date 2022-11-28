@@ -11,7 +11,6 @@ const Header = ({
 }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
-    // console.log(e.target.value);
   };
 
   return (
@@ -75,7 +74,6 @@ const Header = ({
                     <button className="sell">Vends tes article </button>
                   </Link>
 
-                  {/* <button className="sell">Vends tes articles</button> */}
                   <button className="help">?</button>
                   <select className="language">
                     <option>Français (French)</option>
@@ -105,7 +103,6 @@ const Header = ({
             value={search}
             placeholder="Rechercher des articles"
             onChange={handleChange}
-            // onKeyDown={handleSearchChange}
           />
 
           <nav className="topBar container menu-bar">
